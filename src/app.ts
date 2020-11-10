@@ -3,15 +3,14 @@ import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import dotEnv from 'dotenv'
-import expressLayout from 'express-ejs-layouts'
-
+import path from 'path'
 // Routes
 import { RouteBook } from './routes'
 
 
 class App {
 
-    public app: Application;
+    public app;
 
     constructor() {
         this.app = express()
@@ -25,10 +24,9 @@ class App {
         this.app.use(morgan("dev"))
         this.app.use(bodyParser.json())
         this.app.use(cors)
-        this.app.use(express.static('public'))
-        this.app.use(expressLayout)
-        this.app.set('views', __dirname + '/views/')
+        this.app.use(express.static(path.join(__dirname, 'public')))
         this.app.set('view engine', 'ejs')
+        this.app.set('views', path.join(__dirname, 'views'))
 
 
     }
