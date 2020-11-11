@@ -2,9 +2,15 @@ import { Request, Response } from 'express'
 
 import ControllerInterface from './ControllerInterface'
 
+// Models
+const db = require('../db/models')
+
 class BookController implements ControllerInterface {
-    index(req: Request, res: Response): any {
-        return res.render('books/index')
+    index = async (req: Request, res: Response): Promise<any> => {
+        const books = await db.book.findAll({
+            attributes: ['id', 'title', 'author']
+        })
+        return res.render('books/index', { books })
     }
     create(req: Request, res: Response): Response {
         return res.send('create')
