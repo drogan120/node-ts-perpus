@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from 'express';
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import dotEnv from 'dotenv'
+import { config as dotEnv } from 'dotenv'
 import path from 'path'
 
 // Routes
@@ -18,7 +18,7 @@ class App {
         this.views()
         this.routes()
         this.plugins()
-        dotEnv.config()
+        dotEnv()
     }
 
     protected views() {
