@@ -120,7 +120,10 @@ dist
 
 ### dotenv ###
 .env
+
+#### customadd ####
 /build
 build/*
 ./build
+src/public/images/*
 # End of https://www.toptal.com/developers/gitignore/api/dotenv

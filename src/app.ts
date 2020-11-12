@@ -33,7 +33,7 @@ class App {
 
   protected routes() {
     this.app.get('/', (req, res) => {
-      res.render('books/index');
+      res.render('home/index');
     });
     this.app.use('/books', RouteBook);
   }
