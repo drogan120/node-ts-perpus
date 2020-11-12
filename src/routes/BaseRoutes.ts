@@ -1,16 +1,15 @@
-import { Router } from 'express'
-import RouterInterface from './RouterInterface'
+import { Router } from 'express';
+import RouterInterface from './RouterInterface';
 
 abstract class BaseRoutes implements RouterInterface {
+  public router: Router;
 
-    public router: Router
+  constructor() {
+    this.router = Router();
+    this.routes();
+  }
 
-    constructor() {
-        this.router = Router()
-        this.routes()
-    }
-
-    abstract routes(): void
+  abstract routes(): void
 }
 
-export default BaseRoutes
+export default BaseRoutes;

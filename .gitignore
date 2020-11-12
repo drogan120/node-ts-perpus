@@ -125,5 +125,6 @@ dist
 /build
 build/*
 ./build
-src/public/images/*
+./src/public/images/*.*
+src/public/images/*.*
 # End of https://www.toptal.com/developers/gitignore/api/dotenv

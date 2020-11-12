@@ -6,7 +6,7 @@ import { config as dotEnv } from 'dotenv';
 import path from 'path';
 
 // Routes
-import RouteBook from './routes/BookRoutes';
+import { RouteBook } from './routes';
 
 class App {
   public app: Application;
@@ -35,6 +35,7 @@ class App {
     this.app.get('/', (req, res) => {
       res.render('home/index');
     });
+
     this.app.use('/books', RouteBook);
   }
 }
@@ -43,5 +44,6 @@ const PORT: String = process.env.APP_PORT || '5000';
 const { app } = new App();
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Application is running on http://localhost:${PORT}`);
 });

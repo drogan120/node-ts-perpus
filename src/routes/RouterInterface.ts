@@ -1,5 +1,5 @@
 interface RouterInterface {
-    routes(): void;
+  routes(): void;
 }
 
 export default RouterInterface;
