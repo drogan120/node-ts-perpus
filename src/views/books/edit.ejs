@@ -1,9 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
-</html>
+<%- include ('../templates/header') %>
+
+<div class="container mt-4 mx-auto">
+  <div class="flex">
+    <div class="w-8/12 shadow-lg rounded p-5 bg-gray-400">
+      <form action="" method="post">
+        <div class="mb-3">
+          <label for="title" class="block text-xs mb-2 text-gray-600"
+            >Title</label
+          >
+          <input
+            class="bg-gray-100 text-gray-700 rounded border-none px-3 h-10 w-full focus:outline-none"
+            type="text"
+            name="title"
+            value="<%= book.title %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="isbn" class="block text-xs mb-2 text-gray-600"
+            >ISBN</label
+          >
+          <input
+            class="bg-gray-300 text-gray-700 rounded border-none px-3 h-10 w-full focus:outline-none"
+            type="text"
+            name="isbn"
+            value="<%= book.isbn %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label for="author" class="block text-xs mb-2 text-gray-600"
+            >Author</label
+          >
+          <input
+            class="bg-gray-300 text-gray-600 rounded border-none px-3 h-10 w-full focus:outline-none"
+            type="text"
+            name="author"
+            value="<%= book.author %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label for="publisher" class="block text-xs mb-2 text-gray-600"
+            >Publisher</label
+          >
+          <input
+            class="bg-gray-300 text-gray-600 rounded border-none px-3 h-10 w-full focus:outline-none"
+            type="text"
+            name="publisher"
+            value="<%= book.publisher %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label for="released" class="block text-xs mb-2 text-gray-600"
+            >Released</label
+          >
+          <input
+            class="bg-gray-300 text-gray-600 rounded border-none px-3 h-10 w-full focus:outline-none"
+            type="text"
+            name="released"
+            value="<%= book.released %>"
+            readonly
+          />
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="block text-xs mb-2 text-gray-600"
+            >Stock</label
+          >
+          <input
+            class="bg-gray-100 text-gray-600 rounded border-none px-3 h-10 w-full focus:outline-none"
+            type="text"
+            name="stock"
+            value="<%= book.stock %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="cover" class="block text-xs mb-2 text-gray-600"
+            >Cover</label
+          >
+          <input
+            class="bg-gray-300 text-gray-600 rounded border-none px-3 h-10 w-full focus:outline-none"
+            type="file"
+            name="cover"
+            value="<%= book.cover %>"
+            readonly
+          />
+        </div>
+        <div class="mt-5 mb-3">
+          <a
+            href="#"
+            class="rounded bg-blue-400 p-2 mx-auto text-white hover:bg-blue-700"
+            >Update</a
+          >
+        </div>
+      </form>
+    </div>
+    <div class="w-4/12 shadow-lg ml-5">
+      <div class="rounded p-5">
+        <img src="/assets/images/ali.jpg" alt="" srcset="" />
+      </div>
+    </div>
+  </div>
+</div>

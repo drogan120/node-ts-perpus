@@ -1,71 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/tailwind.css" />
-  </head>
-  <body>
-    <div>
-      <h4 class="bg-blue-700 text-white p-5 border-b-2 shadow-lg">
-        Hallo ini daftar buku
-      </h4>
-      <div class="bg-white mt-5">
-        <table class="shadow-lg mt-4 mx-auto">
-          <thead>
-            <tr>
-              <th
-                class="bg-blue-400 border-b-2 rounded-tl-md text-left px-8 py-4"
+<%- include ('../templates/header') %>
+<div>
+
+  <div class="container mt-5 mx-auto">
+      <table class="shadow-lg">
+        <thead>
+          <tr>
+            <th
+              class="bg-blue-400 text-white border-b-2 rounded-tl-md text-left px-8 py-4"
+            >
+              No
+            </th>
+            <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">Title</th>
+            <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">ISBN</th>
+            <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">Author</th>
+            <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">
+              Publisher
+            </th>
+            <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">Released</th>
+            <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">Stock</th>
+            <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">Cover</th>
+            <th
+              class="bg-blue-400 text-white border-b-2 rounded-tr-md text-left px-8 py-4"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <% books.forEach(function (book) { %>
+        <tbody>
+          <tr>
+            <td class="border-b-2 text-gray-700 px-8 py-4">*</td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.title %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.isbn %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.author %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.publisher %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.released %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.stock %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.stock %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4">
+              <a
+                href="/books/edit/<%= book.id%>"
+                class="bg-blue-400 text-white rounded-lg p-2 shadow-md hover:bg-blue-700"
+                >Edit</a
               >
-                No
-              </th>
-              <th class="bg-blue-400 border-b-2 text-left px-8 py-4">Title</th>
-              <th class="bg-blue-400 border-b-2 text-left px-8 py-4">ISBN</th>
-              <th class="bg-blue-400 border-b-2 text-left px-8 py-4">Author</th>
-              <th class="bg-blue-400 border-b-2 text-left px-8 py-4">
-                Publisher
-              </th>
-              <th class="bg-blue-400 border-b-2 text-left px-8 py-4">
-                Released
-              </th>
-              <th class="bg-blue-400 border-b-2 text-left px-8 py-4">Stock</th>
-              <th class="bg-blue-400 border-b-2 text-left px-8 py-4">Cover</th>
-              <th
-                class="bg-blue-400 border-b-2 rounded-tr-md text-left px-8 py-4"
+              <a
+                href="#"
+                class="bg-red-400 text-white rounded-lg p-2 hover:bg-red-700"
+                >Delete</a
               >
-                Action
-              </th>
-            </tr>
-          </thead>
-          <% books.forEach(function (book) { %>
-          <tbody>
-            <tr>
-              <td class="border-b-2 px-8 py-4">*</td>
-              <td class="border-b-2 px-8 py-4"><%= book.title %></td>
-              <td class="border-b-2 px-8 py-4"><%= book.isbn %></td>
-              <td class="border-b-2 px-8 py-4"><%= book.author %></td>
-              <td class="border-b-2 px-8 py-4"><%= book.publisher %></td>
-              <td class="border-b-2 px-8 py-4"><%= book.released %></td>
-              <td class="border-b-2 px-8 py-4"><%= book.stock %></td>
-              <td class="border-b-2 px-8 py-4"><%= book.stock %></td>
-              <td class="border-b-2 px-8 py-4">
-                <a
-                  href="#"
-                  class="bg-blue-400 text-white rounded-lg p-2 shadow-md hover:bg-blue-700"
-                  >Update</a
-                >
-                <a
-                  href="#"
-                  class="bg-red-400 text-white rounded-lg p-2 hover:bg-red-700"
-                  >Delete</a
-                >
-              </td>
-            </tr>
-          </tbody>
-          <% }) %>
-        </table>
-      </div>
+            </td>
+          </tr>
+        </tbody>
+        <% }) %>
+      </table>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+<%- include ('../templates/footer')%>
