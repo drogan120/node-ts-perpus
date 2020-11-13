@@ -6,11 +6,12 @@ import { Book } from '../controllers';
 class BookRoutes extends BaseRoutes {
   public routes() {
     this.router.get('/', Book.index);
-    this.router.get('/create', Book.create);
-    this.router.get('/show', Book.show);
+    this.router.post('/create', Book.create);
+    this.router.get('/create', Book.new);
+    this.router.get('/show/:id', Book.show);
     this.router.get('/edit/:id', Book.edit);
-    this.router.get('/update', Book.update);
-    this.router.get('/destroy', Book.destroy);
+    this.router.get('/update/:id', Book.update);
+    this.router.get('/delete/:id', Book.destroy);
   }
 }
 

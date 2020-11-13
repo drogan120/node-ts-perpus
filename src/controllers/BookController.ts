@@ -6,11 +6,11 @@ import ControllerInterface from './ControllerInterface';
 const db = require('../db/models');
 
 class BookController implements ControllerInterface {
-  index = async (_req: Request, res: Response): Promise<any> => {
+  index = async (_req: Request, res: Response): Promise<void> => {
     const books = await db.book.findAll({
       attributes: ['id', 'title', 'author'],
     });
-    return res.render('books/index', { books, title: 'Books' });
+    res.render('books/index', { books, title: 'Books' });
   }
 
   edit = async (req: Request, res: Response): Promise<void> => {
@@ -19,8 +19,14 @@ class BookController implements ControllerInterface {
     return res.render('books/edit', { book });
   }
 
-  create(_req: Request, res: Response): Response {
-    return res.send('create');
+  new = (_req: Request, res: Response): void => {
+    res.render('books/new');
+  }
+
+  create = async (req: Request, res: Response): Promise<void> => {
+    const { title, isbn, author, publisher } = req.body;
+    console.log(title)
+    // res.render('books/new');
   }
 
   show(_req: Request, res: Response): Response {
@@ -31,8 +37,10 @@ class BookController implements ControllerInterface {
     return res.send('update');
   }
 
-  destroy(_req: Request, res: Response): Response {
-    return res.send('destroy');
+  destroy = async (req: Request, res: Response): Promise<void> => {
+    const { id } = req.params;
+    await db.book.destroy({ where: { id } });
+    res.redirect('/books');
   }
 }
 

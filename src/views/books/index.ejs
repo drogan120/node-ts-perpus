@@ -2,7 +2,8 @@
 <div>
 
   <div class="container mt-5 mx-auto">
-      <table class="shadow-lg">
+    <a href="/books/create" class="mt-3 mb-3 rounded bg-blue-400 p-2 text-white hover:bg-blue-700">New</a>
+      <table class="shadow-lg mt-3">
         <thead>
           <tr>
             <th
@@ -44,7 +45,7 @@
                 >Edit</a
               >
               <a
-                href="#"
+                href="/books/delete/<%= book.id%>"
                 class="bg-red-400 text-white rounded-lg p-2 hover:bg-red-700"
                 >Delete</a
               >
