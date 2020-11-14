@@ -21,15 +21,16 @@
             <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">Stock</th>
             <th class="bg-blue-400 text-white border-b-2 text-left px-8 py-4">Cover</th>
             <th
-              class="bg-blue-400 text-white border-b-2 rounded-tr-md text-left px-8 py-4"
+              class="bg-blue-400 text-white border-b-2 rounded-tr-md text-left px-8 py-4" colspan="2"
             >
               Action
             </th>
           </tr>
         </thead>
-        <% books.forEach(function (book) { %>
         <tbody>
-          <tr>
+          <% books.forEach(function (book) { %>
+
+          <tr >
             <td class="border-b-2 text-gray-700 px-8 py-4">*</td>
             <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.title %></td>
             <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.isbn %></td>
@@ -37,22 +38,24 @@
             <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.publisher %></td>
             <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.released %></td>
             <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.stock %></td>
-            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.stock %></td>
+            <td class="border-b-2 text-gray-700 px-8 py-4"><%= book.cover %></td>
             <td class="border-b-2 text-gray-700 px-8 py-4">
               <a
                 href="/books/edit/<%= book.id%>"
                 class="bg-blue-400 text-white rounded-lg p-2 shadow-md hover:bg-blue-700"
                 >Edit</a
               >
-              <a
-                href="/books/delete/<%= book.id%>"
-                class="bg-red-400 text-white rounded-lg p-2 hover:bg-red-700"
-                >Delete</a
-              >
+
             </td>
+            <td class="border-b-2 text-gray-700 px-8 py-4">
+              <form action="<%= baseUrl %>/books/delete/<%= book.id %> " method="POST" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" onclick="confirm('Delete this book ?')" class="bg-red-400 text-white rounded-lg p-2 shadowd-md hover:bg-red-700">Delete</button>
+            </form>
+          </td>
           </tr>
+          <% }) %>
         </tbody>
-        <% }) %>
       </table>
     </div>
   </div>

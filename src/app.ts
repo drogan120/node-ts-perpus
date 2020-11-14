@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import { config as dotEnv } from 'dotenv';
 import path from 'path';
+import methodOverride from 'method-override';
 
 // Routes
 import { RouteBook } from './routes';
@@ -23,10 +24,19 @@ class App {
     this.app.use(express.static(path.join(__dirname, 'public')));
     this.app.set('views', path.join(__dirname, 'views'));
     this.app.set('view engine', 'ejs');
-    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.urlencoded());
+    this.app.use(methodOverride((req, res) => {
+      if (req.body && typeof req.body == 'object' && '_method' in req.body) {
+        const { _method } = req.body;
+        delete req.body._method;
+        console.log(_method)
+        return _method;
+      }
+    }));
   }
 
   protected plugins() {
+
     this.app.use(morgan('dev'));
     this.app.use(cors);
   }
