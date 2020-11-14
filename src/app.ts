@@ -40,10 +40,14 @@ class App {
   }
 }
 
-const PORT: String = process.env.APP_PORT || '5000';
 const { app } = new App();
 
+const PORT: String = process.env.APP_PORT || '5000';
+const URL = process.env.APP_URL;
+const baseURL = URL + ':' + PORT;
+
+app.locals.baseUrl = baseURL;
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`Application is running on http://localhost:${PORT}`);
+  console.log(`Application is running on ${baseURL}`);
 });

@@ -24,8 +24,8 @@ class BookController implements ControllerInterface {
   }
 
   create = async (req: Request, res: Response): Promise<void> => {
-    const { title, isbn, author, publisher } = req.body;
-    console.log(title)
+    const data = req.body;
+    res.send(data);
     // res.render('books/new');
   }
 
