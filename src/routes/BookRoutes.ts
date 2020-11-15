@@ -8,9 +8,8 @@ class BookRoutes extends BaseRoutes {
     this.router.get('/', Book.index);
     this.router.post('/create', Book.create);
     this.router.get('/create', Book.new);
-    this.router.get('/show/:id', Book.show);
     this.router.put('/update/:id', Book.update);
-    this.router.get('/edit/:id', Book.edit);
+    this.router.get('/edit/:id', Book.show);
     this.router.delete('/delete/:id', Book.destroy);
   }
 }
