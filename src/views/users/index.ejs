@@ -50,17 +50,25 @@
         <td class="border-b-2 text-gray-700 px-8 py-4"><%= user.photo %></td>
         <td class="border-b-2 text-gray-700 px-8 py-4">
           <a
-            href="#"
+            href="<%= baseUrl %>/users/edit/<%= user.id %>  "
             class="rounded bg-blue-400 text-white p-2 shadow-md hover:bg-blue-700"
-            >Edit</a
+            >Profile</a
           >
         </td>
         <td class="border-b-2 text-gray-700 px-8 py-4">
-          <a
-            href=""
-            class="rounded bg-red-400 text-white p-2 shadows-md hover:bg-red-700"
-            >Delete</a
+          <form
+            action="<%= baseUrl %>/users/delete/<%= user.id %>"
+            method="post"
           >
+            <input type="hidden" name="_method" value="DELETE" />
+            <button
+              type="submit"
+              class="rounded bg-red-400 text-white p-2 shadows-md hover:bg-red-700"
+              onclick="confirm('hapus data ?')"
+            >
+              Delete
+            </button>
+          </form>
         </td>
       </tr>
       <% }) %>

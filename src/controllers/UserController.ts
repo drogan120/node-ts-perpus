@@ -8,7 +8,7 @@ const db = require('../db/models');
 class UserController implements ControllerInterface {
   index = async (req: Request, res: Response): Promise<void> => {
     try {
-      const users = await db.user.findAll({ attributes: ['fullname', 'uid', 'photo', 'address', 'phone'] });
+      const users = await db.user.findAll({ attributes: ['id', 'fullname', 'uid', 'photo', 'address', 'phone'] });
       res.render('users/index', { users });
     } catch (e) {
       res.send(e);
@@ -16,7 +16,13 @@ class UserController implements ControllerInterface {
   }
 
   show = async (req: Request, res: Response): Promise<void> => {
-    await res.send('oke');
+    try {
+      const { id } = req.params;
+      const user = await db.user.findOne({ where: { id }, attributes: ['uid', 'fullname', 'email', 'phone', 'address'] });
+      res.render('users/profile', { user });
+    } catch (e) {
+      res.send(e);
+    }
   }
 
   new = (_req: Request, res: Response): void => {
@@ -51,7 +57,13 @@ class UserController implements ControllerInterface {
   }
 
   destroy = async (req: Request, res: Response): Promise<void> => {
-    await res.send('oke');
+    try {
+      const { id } = req.params;
+      await db.user.destroy({ where: { id } });
+      res.redirect('/users');
+    } catch (e) {
+      res.send(e);
+    }
   }
 }
 export default new UserController();
