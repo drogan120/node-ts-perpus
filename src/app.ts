@@ -43,8 +43,8 @@ class App {
     this.app.get('/', (_req, res) => {
       res.render('home/index');
     });
-    this.app.use('/books', RouteBook);
-    this.app.use('/users', RouteUser);
+    this.app.use('/admin/books', RouteBook);
+    this.app.use('/admin/users', RouteUser);
   }
 }
 

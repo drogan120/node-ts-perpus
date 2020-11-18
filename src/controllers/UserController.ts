@@ -44,7 +44,7 @@ class UserController implements ControllerInterface {
       if (password === vpassword) {
         const data = { fullname, email, password };
         await db.user.create(data);
-        res.redirect('/users');
+        res.redirect('/admin/users');
       }
       res.send('please check your password ');
     } catch (e) {
@@ -60,7 +60,7 @@ class UserController implements ControllerInterface {
     try {
       const { id } = req.params;
       await db.user.destroy({ where: { id } });
-      res.redirect('/users');
+      res.redirect('/admin/users');
     } catch (e) {
       res.send(e);
     }

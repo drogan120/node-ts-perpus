@@ -51,7 +51,7 @@ class BookController implements ControllerInterface {
         cover,
       };
       await db.book.create(data);
-      res.redirect('/books');
+      res.redirect('/admin/books');
     } catch (e) {
       res.send(e);
     }
@@ -62,7 +62,7 @@ class BookController implements ControllerInterface {
       const id = req.params;
       const { title, stock } = req.body;
       await db.book.update({ title, stock }, { where: id });
-      res.redirect('/books');
+      res.redirect('/admin/books');
     } catch (e) {
       res.send(e);
     }
@@ -72,7 +72,7 @@ class BookController implements ControllerInterface {
     try {
       const { id } = req.params;
       await db.book.destroy({ where: { id } });
-      res.redirect('/books');
+      res.redirect('/admin/books');
     } catch (e) {
       res.send(e);
     }

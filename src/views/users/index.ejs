@@ -2,7 +2,7 @@
 
 <div class="container mx-auto mt-5">
   <a
-    href="/users/create"
+    href="/admin/users/create"
     class="mt-3 mb-3 rounded bg-blue-400 p-2 text-white hover:bg-blue-700"
     >New</a
   >
@@ -50,14 +50,14 @@
         <td class="border-b-2 text-gray-700 px-8 py-4"><%= user.photo %></td>
         <td class="border-b-2 text-gray-700 px-8 py-4">
           <a
-            href="<%= baseUrl %>/users/edit/<%= user.id %>  "
+            href="<%= baseUrl %>/admin/users/edit/<%= user.id %>  "
             class="rounded bg-blue-400 text-white p-2 shadow-md hover:bg-blue-700"
             >Profile</a
           >
         </td>
         <td class="border-b-2 text-gray-700 px-8 py-4">
           <form
-            action="<%= baseUrl %>/users/delete/<%= user.id %>"
+            action="<%= baseUrl %>/admin/users/delete/<%= user.id %>"
             method="post"
           >
             <input type="hidden" name="_method" value="DELETE" />
