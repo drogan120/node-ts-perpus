@@ -27,17 +27,26 @@
         <div class="w-full">
           <div class="mx-auto p-8">
             <div class="text-xl font-semibold mb-3 text-gray-600">Search</div>
-            <form action="#" method="post">
+            <form
+              action="<%= baseUrl %>"
+              method="post"
+              enctype="application/x-www-form-urlencoded"
+            >
               <div class="">
-                <label for="books" class="text-gray-600 block text-xs mb-2"
+                <label for="keyword" class="text-gray-600 block text-xs mb-2"
                   >Book Name</label
                 >
                 <input
                   type="text"
-                  name="books"
-                  id="books"
+                  name="keyword"
                   class="rounded border-none bg-gray-200 px-3 h-10 w-full focus:outline-none"
                 />
+                <button
+                  type="submit"
+                  class="rounded mt-2 text-white p-2 bg-blue-400 hover:bg-blue-700 focus:outline-none"
+                >
+                  Search
+                </button>
               </div>
             </form>
           </div>
@@ -46,6 +55,7 @@
     </div>
 
     <!-- Search Result -->
+    <% data.forEach(function (book) { %>
     <div class="container mx-auto">
       <div class="flex">
         <div class="p-8">
@@ -61,11 +71,8 @@
                 srcset=""
               />
               <div class="p-3 border-b-3 mt-2 mb-2">
-                <h4 class="text-gray-500">JUDUL</h4>
-                <P class="text-gray-500"
-                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Consequatur, facilis!</P
-                >
+                <h4 class="text-gray-500"><%= book.title %></h4>
+                <P class="text-gray-500"><%= book.author %> </P>
               </div>
               <div class="button mt-2 mb-2">
                 <a
@@ -79,5 +86,6 @@
         </div>
       </div>
     </div>
+    <% }) %>
   </body>
 </html>

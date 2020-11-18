@@ -7,7 +7,7 @@ import path from 'path';
 import methodOverride from 'method-override';
 
 // Routes
-import { RouteBook, RouteUser } from './routes';
+import { RouteBook, RouteUser, RouteHome } from './routes';
 
 class App {
   public app: Application;
@@ -40,9 +40,7 @@ class App {
   }
 
   protected routes() {
-    this.app.get('/', (_req, res) => {
-      res.render('home/index');
-    });
+    this.app.use('/', RouteHome);
     this.app.use('/admin/books', RouteBook);
     this.app.use('/admin/users', RouteUser);
   }
