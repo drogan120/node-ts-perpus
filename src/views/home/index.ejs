@@ -8,9 +8,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="bg-blue-700 text-white p-5 border-b-2 shadow-lg">
-      <div class="">Node Perpus</div>
-    </nav>
+    <%- include ('../templates/navbar') %>
 
     <!-- Header -->
     <div class="header">
@@ -57,11 +55,11 @@
     <!-- Search Result -->
     <% if (typeof data !== 'undefined') { %>
     <div class="container mx-auto">
+      <% data.forEach(function (book) { %>
       <div class="flex">
         <div class="p-8">
           <h2 class="text-gray-500 text-lg mt-3 mb-3">Result</h2>
           <div class="w-1/2">
-            <% data.forEach(function (book) { %>
             <div
               class="rounded shadow-lg p-4 ml-2 mr-2 mt-2 text-white mx-auto mb-2"
             >
@@ -83,10 +81,10 @@
                 >
               </div>
             </div>
-            <% }) %>
           </div>
         </div>
       </div>
+      <% }) %>
     </div>
     <% } %>
   </body>
