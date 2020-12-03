@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import ControllerInterface from './ControllerInterface';
-import passwordHash from '../utils/PasswordHash';
+import Authentication from '../utils/Authentication';
 
 // Models
 const db = require('../db/models');
@@ -43,7 +43,7 @@ class UserController implements ControllerInterface {
         vpassword,
       } = req.body;
       if (password === vpassword) {
-        const hash :string = await passwordHash.hash(password);
+        const hash :string = await Authentication.hash(password);
         const data = { fullname, email, password: hash };
         console.log(data);
         await db.user.create(data);

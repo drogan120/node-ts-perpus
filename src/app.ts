@@ -7,7 +7,7 @@ import path from 'path';
 import methodOverride from 'method-override';
 
 // Routes
-import { RouteBook, RouteUser, RouteHome } from './routes';
+import { RouteBook, RouteUser, RouteHome, RouteAuth} from './routes';
 
 class App {
   public app: Application;
@@ -43,6 +43,7 @@ class App {
     this.app.use('/', RouteHome);
     this.app.use('/admin/books', RouteBook);
     this.app.use('/admin/users', RouteUser);
+    this.app.use('/auth', RouteAuth);
   }
 }
 
