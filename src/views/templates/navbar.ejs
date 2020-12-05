@@ -1,9 +1,12 @@
-<nav class="bg-blue-700 text-white p-5 border-b-2 shadow-lg">
+<nav class="flex bg-blue-700 text-white p-5 border-b-2 shadow-lg">
   <div class="">Node Perpus</div>
-  <ul class="block">
-    <li>
-      <a href="/admin/books">Books</a>
-      <a href="/admin/users">Users</a>
-    </li>
-  </ul>
+ <div class="ml-auto">
+    <ul>
+      <li class="hidden md:block">
+        <a class="text-sm text-gray-400 hover:text-gray-100" href="<%- baseUrl %>/admin/users">Users</a>
+        <a class="text-sm text-gray-400 hover:text-gray-100" href="<%- baseUrl %>/admin/books">Books</a>
+        <a class="text-sm text-gray-400 hover:text-gray-100" href="<%- baseUrl %>/auth">Login</a>
+      </li>
+    </ul>
+ </div>
 </nav>

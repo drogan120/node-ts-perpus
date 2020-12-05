@@ -1,14 +1,17 @@
 <%- include ('../templates/header') %> <%- include ('../templates/navbar') %>
-<div class="container">
+<div class="container mt-5  ">
   <form action="<%= baseUrl %>/auth %>" method="POST">
-    <div>
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username">
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="text" name="password" id="password">
-    </div>
-    <button type="submit">Login</button>
+    <div class="w-6/12 shadow p-5 rounded bg-gray-100 mx-auto mt-5">
+      <h4 class="text-gray-600 mx-auto">LOGIN</h4>
+      <div>
+        <label for="username" class="block text-sm text-gray-600">Username</label>
+        <input type="text" name="username" id="username" class="w-full bg-gray-300 rounded focus:outline-none text-sm p-1 text-gray-600">
+      </div>
+      <div>
+        <label for="password" class="block text-sm text-gray-600">Password</label>
+        <input type="text" name="password" id="password" class="w-full bg-gray-300 rounded focus:outline-none text-sm p-1 text-gray-600">
+      </div>
+      <button type="submit" class="rounded bg-blue-500 hover:bg-blue-700 text-white p-2 mt-3 ">Login</button>
   </form>
+</div>
 </div>
