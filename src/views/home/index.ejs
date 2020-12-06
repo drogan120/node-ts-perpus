@@ -1,4 +1,4 @@
-<%- include ('../templates/header') %> <%- include ('../templates/navbar') %>
+<%- include ('../templates/header') %>
     <!-- Navbar -->
     <%- include ('../templates/navbar') %>
 
@@ -29,7 +29,7 @@
                 <input
                   type="text"
                   name="keyword"
-                  class="rounded border-none bg-white px-3 h-10 w-full focus:outline-none"
+                  class="rounded border-none bg-white px-3 h-10 w-full focus:outline-none outline-blue-200"
                 />
                 <button
                   type="submit"
@@ -60,7 +60,7 @@
                 srcset=""
               />
               <div class="p-3 border-b-3 mt-2 mb-2">
-                <h4 class="text-gray-500"><%= book.title %></h4>
+                <h4 class="text-gray-500"><%= book.tittle %></h4>
                 <P class="text-gray-500"><%= book.author %> </P>
               </div>
               <div class="button mt-2 mb-2">

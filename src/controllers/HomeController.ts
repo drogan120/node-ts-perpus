@@ -13,7 +13,7 @@ class HomeController {
       const { keyword } = req.body;
       const data = await db.book.findAll({
         where: {
-          title: {
+          tittle: {
             [Op.like]: `%${keyword}%`,
           },
         },

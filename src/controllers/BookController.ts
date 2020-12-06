@@ -9,9 +9,9 @@ class BookController implements ControllerInterface {
   index = async (_req: Request, res: Response): Promise<void> => {
     try {
       const books = await db.book.findAll({
-        attributes: ['id', 'title', 'isbn', 'publisher', 'released', 'stock', 'cover', 'author'],
+        attributes: ['id', 'tittle', 'isbn', 'publisher', 'released', 'stock', 'cover', 'author'],
       });
-      res.render('books/index', { books, title: 'Books' });
+      res.render('books/index', { books, tittle: 'Books' });
     } catch (e) {
       res.send(e);
     }
@@ -20,7 +20,7 @@ class BookController implements ControllerInterface {
   show = async (req: Request, res: Response): Promise<void> => {
     try {
       const { id } = req.params;
-      const book = await db.book.findOne({ where: { id }, attributes: ['id', 'title', 'isbn', 'publisher', 'released', 'stock', 'cover', 'author'] });
+      const book = await db.book.findOne({ where: { id }, attributes: ['id', 'tittle', 'isbn', 'publisher', 'released', 'stock', 'cover', 'author'] });
       res.render('books/edit', { book });
     } catch (e) {
       res.send(e);
@@ -39,10 +39,10 @@ class BookController implements ControllerInterface {
     try {
       const
         {
-          title, isbn, author, publisher, released, stock, cover,
+          tittle, isbn, author, publisher, released, stock, cover,
         } = req.body;
       const data = {
-        title,
+        tittle,
         isbn,
         author,
         publisher,
@@ -60,8 +60,8 @@ class BookController implements ControllerInterface {
   update = async (req: Request, res: Response): Promise<void> => {
     try {
       const id = req.params;
-      const { title, stock } = req.body;
-      await db.book.update({ title, stock }, { where: id });
+      const { tittle, stock } = req.body;
+      await db.book.update({ tittle, stock }, { where: id });
       res.redirect('/admin/books');
     } catch (e) {
       res.send(e);
